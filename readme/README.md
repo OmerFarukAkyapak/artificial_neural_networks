@@ -1,2 +1,2 @@
-# yapaysiniraglari
-Yapay Sinir Ağları
+# artificial_neural_networks
+Artificial Neural Networks ...
