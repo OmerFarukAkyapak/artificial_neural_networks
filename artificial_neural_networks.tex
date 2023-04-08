@@ -68,7 +68,7 @@ Dersi Veren Öğretim Elemanı: Dr. Öğretim Üyesi Ulya Bayram}
     \item Bilgisayarınıza hiçbir program kurmadan, Overleaf, Google Colab, Kaggle gibi ortamlar üzerinden bu vizeyi tamamlamanız mümkün. İyi çalışmalar!!
 \end{itemize}
 
-(Ekstra 5 puan) \url{https://github.com/OmerFarukAkyapak/yapaysiniraglari}
+(Ekstra 5 puan) \url{https://github.com/OmerFarukAkyapak/artificial_neural_networks}
 
 \newpage
 \section{(Toplam 10 Puan) Hopfield Networks:}
@@ -317,7 +317,7 @@ tensor([[0.4929],
 \subsection{(5 Puan)} \textbf{Kodlarınızın ve sonuçlarınızın olduğu jupyter notebook'un Github repository'sindeki linkini aşağıdaki url kısmının içine yapıştırın. İlk sayfada belirttiğim gün ve saate kadar halka açık (public) olmasın:}
 % size ait Github olmak zorunda, bu vize için ayrı bir github repository'si açıp notebook'u onun içine koyun. Kendine ait olmayıp da arkadaşının notebook'unun linkini paylaşanlar 0 alacak.
 
-\url{https://github.com/OmerFarukAkyapak/yapaysiniraglari}
+\url{https://github.com/OmerFarukAkyapak/artificial_neural_networks}
 
 \section{(Toplam 40 Puan) Multilayer Perceptron (MLP):} 
 \textbf{Bu bölümdeki sorularda benim vize ile beraber paylaştığım Prensesi İyileştir (Cure The Princess) Veri Seti parçaları kullanılacak. Hikaye şöyle (soruyu çözmek için hikaye kısmını okumak zorunda değilsiniz):} 
@@ -532,7 +532,7 @@ Learning rate değerlerini değiştirdim.
 
 \subsection{(2 Puan)} \textbf{Beşinci soruya ait tüm kodların ve cevapların olduğu jupyter notebook'un Github linkini aşağıdaki url'e koyun.}
 
-\url{https://github.com/OmerFarukAkyapak/yapaysiniraglari}
+\url{https://github.com/OmerFarukAkyapak/artificial_neural_networks}
 
 \section{(Toplam 10 Puan)} \textbf{Bir önceki sorudaki Prensesi İyileştir problemindeki yapay sinir ağınıza seçtiğiniz herhangi iki farklı regülarizasyon yöntemi ekleyin ve aşağıdaki soruları cevaplayın.} 
 
@@ -545,8 +545,15 @@ Learning rate değerlerini değiştirdim.
         for param in model.parameters():
             l1_reg += torch.norm(param, p=1)
         loss += l1_lambda * l1_reg
+        
+######## L2 Regularization #######
+        l2_lambda = 0.001
+        l2_reg = torch.tensor(0.)
+        for param in model.parameters():
+            l2_reg += torch.norm(param, p=2)
+            
 
-#EarlyStopping
+######## EarlyStopping #######
         val_score=val_loss
 
         if best_val_loss is None:
@@ -574,14 +581,14 @@ F1 Score: 0.9049 ----------------------- F1 Score: 0.9355
 
 \subsection{(5 puan)} \textbf{Regülarizasyon yöntemi seçimlerinizin sebeplerini ve sonuçlara etkisini yorumlayın:}
 
- L1 regularizasyonu ile modelin ağırlıklarını düzenlemek amacıyla kullandım. Gereksiz özelliklerin seçilmesini veya ağırlıkların küçültülmesini sağladım. Yani modelde sadece önemli özelliklere odaklanıldım. 
+ L1 regularizasyonu ile modelin ağırlıklarını düzenlemek amacıyla kullandım. Gereksiz özelliklerin seçilmesini ve ağırlıkların küçültülmesini sağladım. Yani modelde sadece önemli özelliklere odaklandım. 
  
- Buna ek olarak kodum da EarlyStopping de kullandım tam anlamıyla bir regularizasyon yöntemi olmasa da modelin aşırı uyum (overfitting) riskini azaltmak için kullanılandım. Bu yöntemler sonucunda değerlerimin yeterince yükseldiğini gözlemledim. 
+ Buna ek olarak kodum da EarlyStopping de kullandım tam anlamıyla bir regularizasyon yöntemi olmasa da modelin aşırı uyum (overfitting) riskini azaltmak için ekledim. Bu yöntemler sonucunda değerlerimin yeterince yükseldiğini gözlemledim. 
  
- L1 regularizasyonu L2 ye kıyasla daha verimli çalıştı. Githubda L2 regularizasyonumda bulunmaktadır.
+ L1 regularizasyonu L2'ye kıyasla daha verimli çalıştı. Githubda L2 regularizasyonumda bulunmaktadır.
 
 \subsection{(1 puan)} \textbf{Sonucun github linkini  aşağıya koyun:}
 
-\url{https://github.com/OmerFarukAkyapak/yapaysiniraglari}
+\url{https://github.com/OmerFarukAkyapak/artificial_neural_networks}
 
 \end{document}
